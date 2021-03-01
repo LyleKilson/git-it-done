@@ -1,4 +1,4 @@
-Title: Search repos by username
+# Search repos by username
 
 **Description**
 
