@@ -24,27 +24,27 @@ var getUserRepos = function (user) {
   // make a request to the url
   fetch(apiUrl)
     .then(function (response) {
-        // request was successful
-    if (response.ok) {
+      // request was successful
+      if (response.ok) {
         response.json().then(function (data) {
-        displayRepos(data, user);
+          displayRepos(data, user);
         });
-    } else {
+      } else {
         alert("Error: " + response.statusText);
-    }
+      }
     })
-    .catch(function(error) {
-        // notice this '.catch()' getting chained onto the end of the '.then' method
-        alert("Unable to connect to GitHub");
-    })
+    .catch(function (error) {
+      // notice this '.catch()' getting chained onto the end of the '.then' method
+      alert("Unable to connect to GitHub");
+    });
 };
 
 var displayRepos = function (repos, searchTerm) {
-    // check if API returned any repos
-    if (repos.length === 0) {
-        repoContainerEl.textContent = "No repositories found.";
-        return;
-    }
+  // check if API returned any repos
+  if (repos.length === 0) {
+    repoContainerEl.textContent = "No repositories found.";
+    return;
+  }
   // clear old content
   repoContainerEl.textContent = "";
   repoSearchTerm.textContent = searchTerm;
